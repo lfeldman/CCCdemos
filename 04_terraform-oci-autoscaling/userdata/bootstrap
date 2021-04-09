@@ -1,0 +1,10 @@
+#!/bin/bash
+
+sudo -u root yum -y -q install httpd
+
+sudo -u root touch /var/www/html/index.html
+sudo /bin/su -c "echo 'Welcome to cccdemo.com! This is $(echo $HOSTNAME)...' > /var/www/html/index.html"
+
+sudo -u root service firewalld stop
+sudo -u root service httpd start
+
